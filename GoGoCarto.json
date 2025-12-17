@@ -1,0 +1,312 @@
+{
+  "name": "GoGoCarto",
+  "nodes": [
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "9e077e0f-17dc-4e0d-bdeb-f1d83e79bac8",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        624,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "path": "87b806fe-2d9a-4e0e-867e-39bbb99c3036",
+        "responseMode": "lastNode",
+        "options": {
+          "responseContentType": "application/json"
+        }
+      },
+      "id": "cf430a41-c6b9-4dd5-bc96-f32c878c15fd",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -16,
+        240
+      ],
+      "webhookId": "87b806fe-2d9a-4e0e-867e-39bbb99c3036"
+    },
+    {
+      "parameters": {
+        "docId": "kVfTBmZRLtubbDiRg6WhfH",
+        "tableId": "Nouvelle_base_consolidee",
+        "returnAll": true,
+        "additionalOptions": {
+          "filter": {
+            "filterProperties": [
+              {
+                "field": "Selection_recensement_FTL_2",
+                "values": "1"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.grist",
+      "typeVersion": 1,
+      "position": [
+        192,
+        240
+      ],
+      "id": "143803fa-898a-490e-8eaa-424b92d17957",
+      "name": "Grist",
+      "credentials": {
+        "gristApi": {
+          "id": "APcBgIt49PR2F7yb",
+          "name": "Grist"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "87345768-9cba-48ad-a63a-873a05a265a0",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "a3fd90b6-df81-4fba-bff2-154283e4111e",
+              "name": "Nom_du_TL",
+              "value": "={{ $json.Nom_du_TL }}",
+              "type": "string"
+            },
+            {
+              "id": "ea0574fb-137f-479b-9485-82ad6987d9e5",
+              "name": "Adresse",
+              "value": "={{ $json.Adresse }}",
+              "type": "string"
+            },
+            {
+              "id": "af8757dc-4a05-47df-b352-4d6ef3776567",
+              "name": "Site_web",
+              "value": "={{ $json.Site_web }}",
+              "type": "string"
+            },
+            {
+              "id": "f8694e0e-b138-4b69-bff6-0f5c90c9f547",
+              "name": "Departement",
+              "value": "={{ $json.Departement }}",
+              "type": "string"
+            },
+            {
+              "id": "2df5c84a-2640-4ea2-a726-a3747be0897f",
+              "name": "Contact_mail",
+              "value": "={{ $json.Contact_mail }}",
+              "type": "string"
+            },
+            {
+              "id": "a7bb13a1-a311-4d1a-834c-a6b0e6a87527",
+              "name": "latitude",
+              "value": "={{ $json.latitude }}",
+              "type": "number"
+            },
+            {
+              "id": "18272dd5-0188-4154-a4af-79b847021285",
+              "name": "longitude",
+              "value": "={{ $json.longitude }}",
+              "type": "number"
+            },
+            {
+              "id": "ab94adac-e437-45c8-b0b1-12fcc24e845e",
+              "name": "Departement_2",
+              "value": "={{ $json.Departement }}",
+              "type": "string"
+            },
+            {
+              "id": "cbe89315-061f-43f6-9f5f-efd53a94a048",
+              "name": "Pour_activites_permanentes_FTL",
+              "value": "={{ $json.Pour_activites_permanentes_FTL }}",
+              "type": "array"
+            },
+            {
+              "id": "b1b887fb-0231-473a-a3ca-fbd2197f3025",
+              "name": "Description_courte",
+              "value": "={{ $json.Description_courte }}",
+              "type": "string"
+            },
+            {
+              "id": "f7a19836-87f2-4991-b7d1-ed18f79e18f8",
+              "name": "Domaines_d_intervention",
+              "value": "={{ $json.Domaines_d_intervention }}",
+              "type": "string"
+            },
+            {
+              "id": "4ef62d2a-1c6c-4706-8fa8-6ae337ee41d8",
+              "name": "Sensibilisation_a_la_transition_ecologique",
+              "value": "={{ $json.Sensibilisation_a_la_transition_ecologique }}",
+              "type": "string"
+            },
+            {
+              "id": "9358609a-5c67-4d99-8433-6b7c58a53eb2",
+              "name": "Sensibilisation_a_la_transition_ecologique_2",
+              "value": "={{ $json.Sensibilisation_a_la_transition_ecologique }}",
+              "type": "string"
+            },
+            {
+              "id": "60e4ee9c-4748-45da-a98d-92d03a73e631",
+              "name": "Gestion_ecologique_du_lieu",
+              "value": "={{ $json.Gestion_ecologique_du_lieu }}",
+              "type": "string"
+            },
+            {
+              "id": "6dccad20-a1d7-4da4-8d21-5a7e9a9abfec",
+              "name": "Gestion_ecologique_du_lieu_2",
+              "value": "={{ $json.Gestion_ecologique_du_lieu }}",
+              "type": "string"
+            },
+            {
+              "id": "6d5f4626-f688-4a93-9ee7-6ced22a39f47",
+              "name": "Activites_permanentes_dediees_a_la_transition_ecologique",
+              "value": "={{ $json.Activites_permanentes_dediees_a_la_transition_ecologique }}",
+              "type": "string"
+            },
+            {
+              "id": "944bd685-f29a-435d-87aa-7ee9ea7371d1",
+              "name": "Activites_permanentes_dediees_a_la_transition_ecologique_2",
+              "value": "={{ $json.Activites_permanentes_dediees_a_la_transition_ecologique_2 }}",
+              "type": "string"
+            },
+            {
+              "id": "d8795d27-9f10-4bab-9b1d-6e8200ade2a5",
+              "name": "Transition_ecologique",
+              "value": "={{ $json.Transition_ecologique }}",
+              "type": "boolean"
+            },
+            {
+              "id": "2d7187e4-f393-4fb6-a2cc-dc667af972fb",
+              "name": "Selection_recensement_FTL",
+              "value": "={{ $json.Selection_recensement_FTL }}",
+              "type": "boolean"
+            },
+            {
+              "id": "ab72fa73-6a0f-42ef-9f86-11715cb26469",
+              "name": "Utilisation_donnees_A_",
+              "value": "={{ $json.Utilisation_donnees_A_ }}",
+              "type": "boolean"
+            },
+            {
+              "id": "565901bf-2292-4ffe-ae44-ccca1d4d9145",
+              "name": "Transition_ecologique_2",
+              "value": "={{ $json.Transition_ecologique }}",
+              "type": "boolean"
+            },
+            {
+              "id": "050c14c9-ec5a-4987-a971-b6c62704f690",
+              "name": "Domaines_d_intervention_2",
+              "value": "={{ $json.Domaines_d_intervention }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        400,
+        240
+      ],
+      "id": "6c617737-2d39-46a2-8951-bad42e6331f2",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "xxxxxxxxxxxxx",
+            "x-request-id": "a1a16c31612890a06314fe0404a19d69",
+            "x-real-ip": "10.4.0.2",
+            "x-forwarded-for": "10.4.0.2",
+            "x-forwarded-host": "n8n.k8s.osp.cat",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-scheme": "https",
+            "x-scheme": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {},
+          "webhookUrl": "xxxxxxxxxxxxxxxxxxx",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Grist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grist": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "558abb5e-7d98-45f5-8ae8-e5b805131c22",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "751c49997d5720a9991bdffc4e0dae12fc71d1bfca96d323b2662258e9ac72a2"
+  },
+  "id": "j0UwYDo3EKTnxCcV",
+  "tags": [
+    {
+      "createdAt": "2025-05-07T08:46:03.302Z",
+      "updatedAt": "2025-05-07T08:46:03.302Z",
+      "id": "mVsC4HP5S2V98xiY",
+      "name": "production"
+    },
+    {
+      "createdAt": "2025-05-07T08:46:03.304Z",
+      "updatedAt": "2025-05-07T08:46:03.304Z",
+      "id": "pD2kEs6qyYT7Glbz",
+      "name": "webhooks"
+    },
+    {
+      "createdAt": "2025-05-07T08:46:03.308Z",
+      "updatedAt": "2025-05-07T08:46:03.308Z",
+      "id": "FyrYR34pbOPokLsQ",
+      "name": "insecure"
+    }
+  ]
+}
